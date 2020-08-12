@@ -11,11 +11,11 @@ steps:
   args: [
    'build', 
    '-t', 
-   'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME',
+   'gcr.io/wordpress-learning-277315/dreampage',
    '.'
   ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME']
+  args: ['push', 'gcr.io/wordpress-learning-277315/dreampage']
 
 #step 3
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -30,13 +30,13 @@ steps:
    'image', 
    'deployment', 
    'app', 
-   'app=gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME'
+   'app=gcr.io/wordpress-learning-277315/dreampage'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ci-playground'
 # push images to Google Container Registry with tags
+tags: ['mytag1', 'mytag2']
 images: [
-   'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME',
-   'gcr.io/wordpress-learning-277315/dreampage:latest'
+   'gcr.io/wordpress-learning-277315/dreampage'
   ]
