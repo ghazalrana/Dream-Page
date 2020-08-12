@@ -11,9 +11,7 @@ steps:
   args: [
    'build', 
    '-t', 
-   'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME',
-   '-t', 
-   'gcr.io/wordpress-learning-277315/dreampage:latest',
+  'gcr.io/wordpress-learning-277315/dreampage:latest',
    '.'
   ]
 #step 3
