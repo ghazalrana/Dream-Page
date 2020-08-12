@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: <app-name>
-  name: <app-name>
+    run: app
+  name: app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: <app-name>
+      run: app
   template:
     metadata:
       labels:
-        run: <app-name>
+        run: app
     spec:
       containers:
-      - image: gcr.io/<google-project-id>/<app-name>:latest
-        name: <app-name>
+      - image: gcr.io/wordpress-learning-277315/dreampage:latest
+        name: app
         ports:
-        - containerPort: <container-port>
+        - containerPort: 80

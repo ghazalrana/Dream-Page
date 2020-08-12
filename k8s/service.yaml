@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: <app-name>
+  name: app
 spec:
   selector:
-     run: <app-name>
+     run: app
   ports:
   - protocol: TCP
     port: 80
-    targetPort: <container-port>
+    targetPort: 80
   type: LoadBalancer
