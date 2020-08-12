@@ -4,16 +4,16 @@ steps:
   entrypoint: 'bash'
   args: [
    '-c', 
-   'docker pull gcr.io/$PROJECT_ID/dreampage:latest || exit 0'
+   'docker pull gcr.io/wordpress-learning-277315/dreampage:latest || exit 0'
   ]
 #step 2
 - name: gcr.io/cloud-builders/docker
   args: [
    'build', 
    '-t', 
-   'gcr.io/$PROJECT_ID/dreampage:$TAG_NAME',
+   'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME',
    '-t', 
-   'gcr.io/$PROJECT_ID/dreampage:latest',
+   'gcr.io/wordpress-learning-277315/dreampage:latest',
    '.'
   ]
 #step 3
@@ -29,13 +29,13 @@ steps:
    'image', 
    'deployment', 
    'dreampage', 
-   'dreampage=gcr.io/$PROJECT_ID/dreampage:$TAG_NAME'
+   'dreampage=gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ci-playground'
 # push images to Google Container Registry with tags
 images: [
-   'gcr.io/$PROJECT_ID/dreampage:$TAG_NAME',
-   'gcr.io/$PROJECT_ID/dreampage:latest'
+   'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME',
+   'gcr.io/wordpress-learning-277315/dreampage:latest'
   ]
