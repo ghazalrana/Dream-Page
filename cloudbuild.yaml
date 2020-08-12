@@ -27,7 +27,7 @@ steps:
    'image', 
    'deployment', 
    'dreampage', 
-   'dreampage=gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME'
+   'dreampage=gcr.io/wordpress-learning-277315/dreampage:latest'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
