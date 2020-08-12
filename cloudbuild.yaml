@@ -11,9 +11,12 @@ steps:
   args: [
    'build', 
    '-t', 
-  'gcr.io/wordpress-learning-277315/dreampage:latest',
+   'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME',
    '.'
   ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME']
+
 #step 3
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'k8s/']
@@ -27,7 +30,7 @@ steps:
    'image', 
    'deployment', 
    'app', 
-   'app=gcr.io/wordpress-learning-277315/dreampage:latest'
+   'app=gcr.io/wordpress-learning-277315/dreampage:$TAG_NAME'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
