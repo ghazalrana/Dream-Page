@@ -1,0 +1,45 @@
+
+
+Step#1
+
+git clone <repo>
+
+step#2
+
+gcloud builds submit --tag gcr.io/<PROJECT_ID>/<image-name> .
+
+step#3
+
+Set up IAM:
+-----------
+-----------
+
+Now on a coding perspective, you are all done. Now we need to configure a couple more resources to get this pipeline working in GCP. First is setting up IAM for cloud builder so that it has permissions to deploy the images in GKE.
+To do this, navigate to IAM & Admin →IAM on the side menu.
+Here, you would see an entry in the format,
+
+<project-number>@cloudbuild.gserviceaccount.com
+
+with the role, Cloud Build Service Account. Edit the role and add "Kubernetes Engine Admin" role to it as well.
+
+step#4
+
+Set up a Build Trigger
+---------------------
+---------------------
+
+
+
+tutorial:
+
+https://medium.com/platformer-blog/ci-cd-with-gke-and-google-cloud-build-98a797ecf346
+
+https://storage.googleapis.com/mattu-la-public-resources/bookshelf-build-deploy.sh
+
+https://cloud.google.com/cloud-build/docs/securing-builds/configure-access-for-cloud-build-service-account
+
+https://cloud.google.com/cloud-build/docs/configuring-builds/create-basic-configuration
+
+
+
+
